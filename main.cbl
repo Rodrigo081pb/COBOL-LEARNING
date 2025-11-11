@@ -1,60 +1,35 @@
-      ******************************************************************
-      * PROGRAMADOR: Rodrigo
-      * DATA.......: 16/10/2025
-      ******************************************************************
-
-       IDENTIFICATION DIVISION.
-       PROGRAM-ID. CAD0001A.
-
-       ENVIRONMENT DIVISION.
-       INPUT-OUTPUT SECTION.
-       FILE-CONTROL.
-           SELECT ARQUIVO-CADASTRO ASSIGN TO 'CADASTRO.DAT'
-               ORGANIZATION IS LINE SEQUENTIAL.
-
-       DATA DIVISION.
-       FILE SECTION.
-       FD ARQUIVO-CADASTRO.
-       01 REGISTRO-CADASTRO.
-           05 NOME   PIC X(30).
-           05 IDADE  PIC 9(03).
-           05 CPF    PIC X(14).
-
-       WORKING-STORAGE SECTION.
-
-       01 WRK-CONTINUAR PIC X(01) VALUE 'S'.
-       01 WRK-NOME PIC X(30).
-       01 WRK-IDADE PIC 9(03).
-       01 WRK-CPF PIC X(14).
-
-
-       PROCEDURE DIVISION.
-       0001-PROCESSAR.
-           OPEN OUTPUT ARQUIVO-CADASTRO.
-
-
-           PERFORM 0002-CADASTRAR-REG UNTIL WRK-CONTINUAR EQUAL 'N'.
-           CLOSE ARQUIVO-CADASTRO.
-
-           STOP RUN.
-       0001-END.
-
-       0002-CADASTRAR-REG.
+           IDENTIFICATION DIVISION.
+           PROGRAM-ID. ORQUESTRADOR.
            
-           DISPLAY 'digite o seu nome: '.
-           ACCEPT WRK-NOME.
-           DISPLAY 'digite sua idade:'.
-           ACCEPT WRK-IDADE.
-           DISPLAY 'DIGITE SEU CPF: '.
-           ACCEPT WRK-CPF.
+           ENVIRONMENT DIVISION.
+           INPUT-OUTPUT SECTION.
+           FILE-CONTROL.
+               SELECT BANCO-DE-DADOS ASSIGN TO 'CADASTRO.DAT'
+                   ORGANIZATION IS LINE SEQUENTIAL.
 
-           MOVE WRK-NOME TO NOME.
-           MOVE WRK-IDADE TO IDADE.
-           MOVE WRK-CPF TO CPF.
+           DATA DIVISION.
+           FILE SECTION.
+           FD BANCO-DE-DADOS.
+                COPY MODELO-DADOS.CPY.
 
-           WRITE REGISTRO-CADASTRO.
+           WORKING-STORAGE SECTION.
 
-           DISPLAY 'DESEJA CADASTRAR OUTRA PESSOA? (S/N)'.
-           ACCEPT WRK-CONTINUAR.
-
-       0002-END.
+           PROCEDURE DIVISION.
+                OPEN OUTPUT BANCO-DE-DADOS.
+    
+                MOVE 1 TO ID-MARCA.
+                DISPLAY 'Digite o nome da marca: '.
+                ACCEPT NOME-MARCA.
+                WRITE CADASTRO-MARCAS.
+    
+                MOVE 2 TO ID-MARCA.
+                MOVE 'SORVETES DELICIA' TO NOME-MARCA.
+                WRITE CADASTRO-MARCAS.
+    
+                MOVE 3 TO ID-MARCA.
+                MOVE 'SORVETES GELATO' TO NOME-MARCA.
+                WRITE CADASTRO-MARCAS.
+    
+                CLOSE BANCO-DE-DADOS.
+                STOP RUN.
+                

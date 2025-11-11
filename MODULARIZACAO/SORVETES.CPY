@@ -1,0 +1,7 @@
+      * COPYBOOK PARA DEFINIÇÃO DA ESTRUTURA DE DADOS
+      * COPYBOOK É UM ARQUIVO DE TEXTO QUE CONTEM FRAGMENTOS DE CÓDIGO 
+           01 SABORES.
+               05 MARCA PIC X(10).
+               05 SABOR PIC X(15).
+               05 PRECO PIC 9(1)V99.
+               
