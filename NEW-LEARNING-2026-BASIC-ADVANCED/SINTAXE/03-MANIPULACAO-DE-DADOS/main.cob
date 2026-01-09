@@ -77,6 +77,11 @@
            MOVE CORRESPONDING PESSOA1 TO PESSOA2.
            *> COPIA NOME E IDADE DE PESSOA1 PARA PESSOA2
 
+           DISPLAY DESTINO.
+           *> EXIBE O VALOR DE DESTINO (QUE FOI MODIFICADO)
+           
+           DISPLAY PESSOA2.
+
        *> -------------------------
        *> FINALIZA O PROGRAMA
        *> -------------------------
