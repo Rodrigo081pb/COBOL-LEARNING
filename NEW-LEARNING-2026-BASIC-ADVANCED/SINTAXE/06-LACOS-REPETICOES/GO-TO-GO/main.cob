@@ -1,0 +1,22 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. APRENDENDO-GO-TO.
+       
+       *> OBJETIVO É APRENDER SOBRE O USO DO GO TO GO QUE SIGNIFICA
+       *> IR PARA
+       ENVIRONMENT DIVISION.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       PROCEDURE DIVISION.
+
+           GO TO PASSO-1. *> AO INVES DE USAR ISSO
+       PASSO-1.
+           DISPLAY 'NUNCA EXECUTADO'.
+       
+       PASSO-2.
+           DISPLAY 'VEIO DIRETO PRA CA'.
+        
+           PERFORM PASSO-2 *> use isso
+           
+           STOP RUN.
